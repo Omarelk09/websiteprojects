@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="{{ url_for('static',filename='websitestyle.css') }}">
+    <title>{% block title %}Dr.Mostafa Elkassouani{% endblock %}</title>
+</head>
+<body>
+{% block header %}
+<header>
+    <div class="row">
+        <div class="col-md-12 emptyspace img1" >
+            <a href="/">
+                <img src="static/logo.jpg" width="100" height="80" />
+            </a>
+        </div>
+        </div>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        {% block nav1 %}
+            <a class="navbar-brand" href="/">Page d'accueil <span class="sr-only">(current)</span></a>
+        {% endblock %}
+      </li>
+      <li class="nav-item">
+          {% block nav2 %}
+        <a class="nav-link" href="firstpage.html">Congrés/Formation</a>
+          {% endblock %}
+      </li>
+      </li>
+        <li class="nav-item">
+            {% block nav3 %}
+        <a class="nav-link" href="secondpage.html">Traitement/Maladies</a>
+            {% endblock %}
+      </li>
+      <li class="nav-item">
+          {% block nav4 %}
+        <a class="nav-link" href="thirdpage.html">Horaires/contact et emplacement</a>
+          {% endblock %}
+      </li>
+     <li class="nav-item">
+          {% block nav5 %}
+        <a class="nav-link" href="fourthpage.html">emplacement</a>
+          {% endblock %}
+      </li>
+    <li class="nav-item">
+          {% block nav7 %}
+        <a class="nav-link" href="{{ url_for('list') }}">utilisateurs</a>
+          {% endblock %}
+      </li>
+    </ul>
+    <form class="form-inline my-2 my-lg-0">
+{#        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">#}
+{% block nav6 %}
+             <a class="nav-item nav-link" href="{{ url_for('sixthpage') }}">Connectez-vous!</a>
+             <span><pre> </pre> </span>
+             <a class="nav-item nav-link" href="{{ url_for('fifthpage') }}">Enregistrez-vous!</a>
+{% endblock %}
+    </form>
+  </div>
+</nav>
+</header>
+{% endblock %}
+<!--
+    ####################################################
+    C A R O U S E L
+    ####################################################
+    -->
+ {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+              {% for category, message in messages %}
+                <div class="alert alert-{{ category }}">
+                  {{ message }}
+                </div>
+              {% endfor %}
+            {% endif %}
+          {% endwith %}
+{% block body %}
+    <div id="carousel-2" class="carousel slide carousel-fade" data-ride="carousel" data-interval="6000">
+        <ol class="carousel-indicators">
+            <li data-target="#carousel-2" data-slide-to="0" class="active"></li>
+            <li data-target="#carousel-2" data-slide-to="1"></li>
+            <li data-target="#carousel-2" data-slide-to="2"></li>
+            <li data-target="#carousel-2" data-slide-to="3"></li>
+            <li data-target="#carousel-2" data-slide-to="4"></li>
+        </ol>
+        <div class="carousel-inner" role="listbox">
+
+            <div class="carousel-item active">
+                <a href="#">
+
+                 <img src="static/reception.jpg" alt="responsive image" class="d-block img-fluid">
+
+                    <div class="carousel-caption">
+                        <div>
+                            <h2>Bienvenue au cabinet du Dr.Mostafa Elkassouani</h2>
+
+                            <span class="btn btn-sm btn-outline-secondary">en apprendre plus</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <!-- /.carousel-item -->
+
+
+            <div class="carousel-item">
+                <a href="#">
+                 <img src="static/salle1.jpg" alt="responsive image" class="d-block img-fluid">
+
+                    <div class="carousel-caption justify-content-center align-items-center">
+                        <div>
+                            <h2>Pourquoi et quand devriez-vous consulter un dermatologue ?</h2>
+
+                            <span class="btn btn-sm btn-outline-secondary">en savoir plus</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <!-- /.carousel-item -->
+            <div class="carousel-item">
+
+
+                 <img src="static/waitingroom2.jpg" alt="responsive image" class="d-block img-fluid">
+
+
+                    <div class="carousel-caption justify-content-center align-items-center">
+                        <div>
+                            <h2>Traitement offert</h2>
+                            <p>Prenez le temp de voir les differents  traitements offert a notre cabinet</p>
+                             <a href="thirdpage.html">
+                            <span class="btn btn-sm btn-secondary" >en apprendre plus</span>
+                                 </a>
+                        </div>
+                    </div>
+
+            </div>
+            <!-- /.carousel-item -->
+            <div class="carousel-item">
+                <a href="#">
+
+                 <img src="static/office2.jpg" alt="responsive image" class="d-block img-fluid">
+
+
+                    <div class="carousel-caption justify-content-center align-items-center">
+                        <div>
+                            <h2>la carrière et le parcours du medecin</h2>
+
+                            <span class="btn btn-sm btn-secondary">en savoir plus</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <!-- /.carousel-item -->
+            <div class="carousel-item">
+                <a href="#">
+
+                 <img src="static/salle2.jpg" alt="responsive image" class="d-block img-fluid">
+
+
+                    <div class="carousel-caption justify-content-center align-items-center">
+                        <div>
+                            <h2>Renseignez vous sur nos horaires et emplacement</h2>
+
+                            <span class="btn btn-sm btn-secondary">en savoir plus</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <!-- /.carousel-item -->
+        </div>
+        <!-- /.carousel-inner -->
+        <a class="carousel-control-prev" href="#carousel-2" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#carousel-2" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+        </a>
+    </div>
+{% endblock %}
+    <!-- /.carousel -->
+
+
+<!--<div class="container-fluid">-->
+<!--    <p>Full width carousel</p>-->
+<!--</div>-->
+<!-- /.container -->
+
+<!-- Footer -->
+{% block footer %}
+<footer id="myfooter" class="page-footer font-small blue">
+
+  <!-- Copyright -->
+  <div class="footer-copyright text-center py-3">Angle Bd Al Qods & Bd Aboubakr El kadiri - Sidi Maârouf - 20280 Casablanca © 2020 Copyright:
+    <a href="firstpage.html"> Dr.Mostafa Elkassouani</a>
+  </div>
+  <!-- Copyright -->
+
+</footer>
+{% endblock %}
+<!-- Footer -->
+
+
+</body>
+</html>

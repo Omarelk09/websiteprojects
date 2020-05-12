@@ -1,0 +1,74 @@
+{% extends 'index.html' %}
+{% block title %}Annonces{% endblock %}
+{% block nav1 %}
+            <a class="nav-link" href="/">Page d'accueil <span class="sr-only">(current)</span></a>
+        {% endblock %}
+{% block nav5 %}
+    <a class="navbar-brand" href="fourthpage.html">Annonces</a>
+{% endblock %}
+{% block body %}
+  <table class="table table-hover">
+          <thead>
+          <tr>
+              <th>Ville</th>
+              <th onclick="sortColumn('distance')">Distance du cabinet</th>
+          </tr>
+          </thead>
+  <tbody id="tableData">
+  </tbody>
+  </table>
+    <script>
+  let directionOfSorting = false;
+  let dataOfCities = [
+      {cities: 'Amsterdam', distance: 2658},
+      {cities: 'Stockholm', distance: 5230},
+      {cities: 'Sydney', distance: 7896},
+      {cities: 'Montreal', distance: 7456},
+      {cities: 'Toronto', distance: 7235},
+      {cities: 'Paris', distance: 2136},
+      {cities: 'Rome', distance: 3580},
+      {cities: 'Tokyo', distance: 8500},
+      {cities: 'New york', distance: 6234},
+      {cities: 'Londre', distance: 3856}
+  ];
+
+  window.onload = () => {
+    loadTableData(dataOfCities);
+  };
+
+  function loadTableData(datainfos) {
+      const bodyOfTable = document.getElementById('tableData');
+      let htmlData = '';
+
+
+      for (let info of datainfos) {
+          htmlData += `<tr><td>${info.cities}</td><td>${info.distance}</td></tr>`;
+      }
+
+
+
+      bodyOfTable.innerHTML = htmlData;
+
+  }
+
+  function sortColumn(columnName){
+      const dataType = typeof dataOfCities[0][columnName];
+      directionOfSorting = !directionOfSorting;
+
+      switch(dataType){
+          case 'number':
+          sortNumberColumn(directionOfSorting, columnName);
+          break;
+      }
+
+      loadTableData(dataOfCities)
+  }
+
+  function sortNumberColumn(sort, columnName){
+      dataOfCities = dataOfCities.sort((p1,p2) => {
+          return sort ? p1[columnName] - p2[columnName] : p2[columnName]
+              - p1[columnName]
+      });
+  }
+    </script>
+{% endblock %}

@@ -1,0 +1,114 @@
+a:link{
+    color: grey;
+    text-decoration: none;
+}
+a:hover{
+    color:white ;
+    text-decoration: none;
+}
+/*a:visited{*/
+/*    color: black;*/
+/*}*/
+a:active{
+    color:red;
+}
+
+.emptyspace{
+    background-color: rgb(100, 16, 0);
+}
+
+
+.img1{
+    margin: 0px;
+    text-align: center;
+}
+/*
+Removes white gap between slides
+*/
+.carousel {
+  background:#444;
+}
+
+/*
+Forces image to be 100% width and not max width of 100%
+*/
+.carousel-item .img-fluid {
+  width:100%;
+  height:600px;
+}
+
+/*
+anchors are inline so you need ot make them block to go full width
+*/
+.carousel-item a {
+  display: block;
+  width:100%;
+}
+#myfooter{
+    background-color: rgb(100, 16, 0) ;
+    color: white;
+}
+.navbar-brand{
+   color: rgb(100, 16, 0) !important;
+
+}
+#tableheader{
+    background-color:rgb(100, 16, 0) !important;
+    color: white;
+}
+.table-hover tbody tr:hover td, .table-hover tbody tr:hover th {
+  background-color:rgb(100, 16, 0) !important;
+    color: white;
+}
+.first-header{
+    text-align: center;
+
+}
+
+.imgcontact{
+    width :200px !important;
+    height:220px !important;
+    float: left !important;
+
+}
+
+.map1{
+
+   text-align: center !important;
+    /*margin-top: 200px !important;*/
+}
+#p1{
+    font-size:20px;
+}
+.container {
+  padding: 2rem 0rem;
+}
+
+h4 {
+  margin: 2rem 0rem 1rem;
+}
+
+
+  td, th {
+    vertical-align: middle;
+  }
+
+#contact{
+    background-color:rgb(100, 16, 0) !important;
+    color: white;
+    margin-top: 0px;
+}
+.content-section{
+
+    background: #ffffff;
+    padding: 10px 20px;
+    border: 1px solid #dddddd;
+    border-radius: 3px;
+    margin-bottom:200px;
+    margin-left:200px;
+    margin-right:200px;
+}
+.login-registration{
+  background-color:rgb(100, 16, 0) !important;
+}
+
